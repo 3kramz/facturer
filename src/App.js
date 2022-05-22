@@ -3,6 +3,7 @@ import Navbar from './Components/Navbar';
 import PublicRoutes from './Routes/PublicRoutes';
 import RequireAuth from './Authentication/RequireAuth';
 import Dashboard from './Pages/Dashboard/Dashboard';
+import Signup from './Pages/Login/Signup';
 
 
 
@@ -19,6 +20,7 @@ function App() {
           <Route path="/dashboard" element={<Dashboard />}></Route>
         </Route>
 
+        <Route path="/signup" element={<Signup />}></Route>
       </Routes>}
 
     </div>

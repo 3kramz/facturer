@@ -1,18 +1,40 @@
 import React from 'react';
+import auth from '../../Firebase.init';
+import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 
 const Login = () => {
 
-    
-   
+
+    const [signInWithGoogle, gLoading, gError] = useSignInWithGoogle(auth);
+    const [signInWithEmailAndPassword, loading, error] = useSignInWithEmailAndPassword(auth);
+
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    let from = location.state?.from?.pathname || "/";
+
+
     const { register, formState: { errors }, handleSubmit } = useForm();
 
-    const onSubmit = data =>console.log(data.email, data.password);
+    const onSubmit = data => {
+        signInWithEmailAndPassword(data.email, data.password);
+        navigate(from, { replace: true });
+    }
+    const googleSignIn = data => {
+        signInWithGoogle()
+        navigate(from, { replace: true });
+    }
 
-    const signInWithGoogle=()=>{console.log("loged")}
+    if (loading || gLoading) { return <button className="btn loading "></button> }
+
+    let ErrorInSignin;
+    if (error || gError) {
+        ErrorInSignin = <p className='text-red-500'><small>{error?.message || gError?.message}</small></p>
+    }
 
     return (
         <div class="hero min-h-screen bg-base-200 justify-items-center">
@@ -75,13 +97,13 @@ const Login = () => {
                                     {errors.password?.type === 'minLength' && <span className="label-text-alt text-red-500">{errors.password.message}</span>}
                                 </label>
                             </div>
-                            
+                            {ErrorInSignin}
                             <input className='btn w-full max-w-xs text-white' type="submit" value="Login" />
                         </form>
                         <p><small>New to Facturer ? <Link className='text-primary' to="/signup">Create Account </Link></small></p>
                         <div className="divider">OR</div>
                         <button
-                            onClick={() => signInWithGoogle()}
+                            onClick={() => googleSignIn()}
                             className="btn btn-outline">
                             Connect With Google
                         </button>
