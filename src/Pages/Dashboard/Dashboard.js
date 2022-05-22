@@ -5,7 +5,7 @@ const Dashboard = () => {
 
     return (
         <>
-            <label for="dashboard" class="btn  drawer-button lg:hidden mt-46">
+            <label for="dashboard" class="ml-4  drawer-button lg:hidden mt-46">
                 <kbd class="kb text-black">⌘</kbd>
             </label>
             <div class="drawer drawer-mobile">
