@@ -7,6 +7,7 @@ import Login from '../Pages/Login/Login'
 
 
 const PublicRoutes = [
+    { name: "home",       path: "/",          Component: Home },
     { name: "home",       path: "/home",          Component: Home },
     { name: "review",     path: "/review",        Component: Review },
     { name: "blogs",      path: "/blogs",         Component: Blogs },
