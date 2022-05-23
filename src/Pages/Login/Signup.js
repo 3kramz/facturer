@@ -3,22 +3,45 @@ import auth from '../../Firebase.init';
 import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import Loading from '../../Components/Loading';
 
 const Login = () => {
 
+    const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
+    const [
+        createUserWithEmailAndPassword,
+
+        loading,
+        error,
+    ] = useCreateUserWithEmailAndPassword(auth);
+
+    const [updateProfile, updating, uError] = useUpdateProfile(auth);
+
     const { register, formState: { errors }, handleSubmit } = useForm();
 
+    
+    const navigate = useNavigate();
 
-    const onSubmit =  data => {
-       console.log(data)
+    const onSubmit = async data => {
+        await createUserWithEmailAndPassword(data.email, data.password)
+        await updateProfile({ displayName: data.name })
+        navigate('/');
+    }
+
+    const googleSignIn = data => {
+        signInWithGoogle()
+        navigate('/');
+    }
+
+
+    if (loading || gLoading || updating) { return <Loading /> }
+
+    let signInError;
+    if (error || gError || uError) {
+        signInError = <p className='text-red-500'><small>{error?.message || gError?.message}</small></p>
     }
 
    
-
-    const googleSignIn = data => {
-       console.log("Clicked")
-    }
-
 
    
 
@@ -103,7 +126,7 @@ const Login = () => {
                                 {errors.password?.type === 'minLength' && <span className="label-text-alt text-red-500">{errors.password.message}</span>}
                             </label>
                         </div>
-                       
+                        {signInError}
                         <input className='btn w-full max-w-xs text-white' type="submit" value="Sign Up" />
                     </form>
                     <p><small>Already have an account? <Link className='text-primary' to="/login">Please Log In</Link></small></p>

@@ -1,5 +1,6 @@
 import React from 'react';
 import auth from '../../Firebase.init';
+import Loading from '../../Components/Loading'
 import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 
@@ -29,7 +30,7 @@ const Login = () => {
         navigate(from, { replace: true });
     }
 
-    if (loading || gLoading) { return <button className="btn loading "></button> }
+    if (loading || gLoading) { return <Loading /> }
 
     let ErrorInSignin;
     if (error || gError) {
