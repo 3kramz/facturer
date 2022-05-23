@@ -17,7 +17,9 @@ function App() {
         {PublicRoutes.map(({ Component, path }) => <Route element={<Component />} path={path} />)}
 
         <Route element={<RequireAuth />} >
-          <Route path="/dashboard" element={<Dashboard />}></Route>
+          <Route path="/dashboard" element={<Dashboard />}>
+            
+          </Route>
         </Route>
 
         <Route path="/signup" element={<Signup />}></Route>
