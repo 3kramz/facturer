@@ -4,6 +4,7 @@ import PublicRoutes from './Routes/PublicRoutes';
 import RequireAuth from './Authentication/RequireAuth';
 import Dashboard from './Pages/Dashboard/Dashboard';
 import Signup from './Pages/Login/Signup';
+import Purches from './Pages/Purches/Purches';
 
 
 
@@ -17,9 +18,8 @@ function App() {
         {PublicRoutes.map(({ Component, path }) => <Route element={<Component />} path={path} />)}
 
         <Route element={<RequireAuth />} >
-          <Route path="/dashboard" element={<Dashboard />}>
-            
-          </Route>
+          <Route path="/dashboard" element={<Dashboard />}></Route>
+          <Route path="/purches/:id" element={<Purches />}></Route>
         </Route>
 
         <Route path="/signup" element={<Signup />}></Route>
