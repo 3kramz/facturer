@@ -1,19 +1,18 @@
+import { signOut } from 'firebase/auth';
 import React from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link, NavLink } from 'react-router-dom';
+import auth from '../Firebase.init';
 
 const Navbar = () => {
-    const user =true
+    const [user] = useAuthState(auth);
     const li = <>
 
         <li><NavLink to="/home">Home</NavLink></li>
         <li><NavLink to="/review">Review</NavLink></li>
         <li><NavLink to="/parts">Parts</NavLink></li>
-        {user && <>
-        <li><NavLink to="/dashboard">Dashboard</NavLink></li>
-       
+        {user && <li><Link to="/dashboard">Dashboard</Link></li>}
         
-        </>}
-
     </>
 
     return (
@@ -38,7 +37,7 @@ const Navbar = () => {
                 <ul class="menu menu-horizontal p-0">
                     <li><NavLink to="/blogs" >Blogs</NavLink></li>
                     <li><NavLink to="/my-portfolio" >Portfolio</NavLink></li>
-                    <li><NavLink to="/login" class="btn-primary btn-outline">Login</NavLink></li>
+                    <li>{user ? <p onClick={() =>{ signOut(auth);localStorage.removeItem('accessToken')}}>Sign Out</p> : <NavLink to="/login" class="btn-primary btn-outline">Login</NavLink>}</li>
                 </ul>
             </div>
         </div>
