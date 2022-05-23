@@ -1,22 +1,32 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import auth from '../../Firebase.init';
 import Loading from '../../Components/Loading'
 import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import useToken from '../../Hooks/UseToken';
 
 
 const Login = () => {
 
 
-    const [signInWithGoogle, gLoading, gError] = useSignInWithGoogle(auth);
-    const [signInWithEmailAndPassword, loading, error] = useSignInWithEmailAndPassword(auth);
+    const [signInWithGoogle, user, gLoading, gError] = useSignInWithGoogle(auth);
+    const [signInWithEmailAndPassword, gUser, loading, error] = useSignInWithEmailAndPassword(auth);
 
     const navigate = useNavigate();
     const location = useLocation();
 
     let from = location.state?.from?.pathname || "/";
+
+    const [token] = useToken(user || gUser)
+
+    useEffect(() => {
+        if (token) {
+            navigate(from, { replace: true });
+        }
+    }, [token, from, navigate])
+
 
 
     const { register, formState: { errors }, handleSubmit } = useForm();
@@ -37,6 +47,8 @@ const Login = () => {
         ErrorInSignin = <p className='text-red-500'><small>{error?.message || gError?.message}</small></p>
     }
 
+
+   
     return (
         <div class="hero min-h-screen bg-base-200 justify-items-center">
             <div class="hero-content flex-col lg:flex-row-reverse">
