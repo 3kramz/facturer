@@ -5,6 +5,8 @@ import RequireAuth from './Authentication/RequireAuth';
 import Dashboard from './Pages/Dashboard/Dashboard';
 import Signup from './Pages/Login/Signup';
 import Purches from './Pages/Purches/Purches';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
@@ -13,6 +15,7 @@ function App() {
   return (
     <div className=""  data-theme="light">
       <Navbar />
+      <ToastContainer/>
       {<Routes>
 
         {PublicRoutes.map(({ Component, path }) => <Route element={<Component />} path={path} />)}
