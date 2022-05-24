@@ -1,100 +1,99 @@
 [
     {
-    "brand":"huawei",
-    "img": "https://www.maxbhi.com/images/thumbnails/150/150/detailed/2509/lcd_with_touch_screen_for_asus_zenfone_max_pro_m1_zb601kl_black_by_maxbhi_com_35923.jpg",
-    "name": "display", 
-    "description": "LCD with touch screen for vivo v17 pro-white(Display combo folder)",
-    "price": 300
+        "img": "https://www.maxbhi.com/images/thumbnails/150/150/detailed/2509/lcd_with_touch_screen_for_asus_zenfone_max_pro_m1_zb601kl_black_by_maxbhi_com_35923.jpg",
+        "name": "Huawi 3e",
+        "description": "LCD with touch screen for vivo v17 pro-white(Display combo folder)",
+        "price": 300,
+        "stock": 345,
+        "minOrder": 10
     },
     {
-    "brand":"huawei",
-    "img": "https://www.maxbhi.com/images/thumbnails/150/150/detailed/2509/lcd_with_touch_screen_for_asus_zenfone_max_pro_m1_zb601kl_black_by_maxbhi_com_35923.jpg",
-    "name": "display", 
-    "description": "LCD with touch screen for vivo v17 pro-white(Display combo folder)",
-    "price": 300
+        "img": "https://www.maxbhi.com/images/thumbnails/150/150/detailed/1517/lcd_with_touch_screen_for_samsung_galaxy_j7_gold_by_maxbhi_com_58509.jpg",
+        "name": "samsung",
+        "description": "LCD with touch screen for vivo v17 pro-white(Display combo folder)",
+        "price": 300,
+        "stock": 354,
+        "minOrder": 10
     },
     {
-    "brand":"huawei",
-    "img": "https://www.maxbhi.com/images/thumbnails/150/150/detailed/2509/lcd_with_touch_screen_for_asus_zenfone_max_pro_m1_zb601kl_black_by_maxbhi_com_35923.jpg",
-    "name": "display", 
-    "description": "LCD with touch screen for vivo v17 pro-white(Display combo folder)",
-    "price": 300
+        "img": "https://www.maxbhi.com/images/thumbnails/150/150/detailed/3692/lcd_with_touch_screen_for_samsung_galaxy_j6_black_by_maxbhi_com_54714.jpg",
+        "name": "Iphone 13 pro",
+        "description": "LCD with touch screen for vivo v17 pro-white(Display combo folder)",
+        "price": 300,
+        "stock": 34,
+        "minOrder": 10
     },
     {
-    "brand":"huawei",
-    "img": "https://www.maxbhi.com/images/thumbnails/150/150/detailed/2509/lcd_with_touch_screen_for_asus_zenfone_max_pro_m1_zb601kl_black_by_maxbhi_com_35923.jpg",
-    "name": "display", 
-    "description": "LCD with touch screen for vivo v17 pro-white(Display combo folder)",
-    "price": 300
+        "img": "https://www.maxbhi.com/images/thumbnails/150/150/detailed/1517/lcd_with_touch_screen_for_samsung_galaxy_j7_black_by_maxbhi_com_16025.jpg",
+        "name": "Lava 3i",
+        "description": "LCD with touch screen for vivo v17 pro-white(Display combo folder)",
+        "price": 300,
+        "stock": 213,
+        "minOrder": 10
     },
     {
-    "brand":"huawei",
-    "img": "https://www.maxbhi.com/images/thumbnails/150/150/detailed/2509/lcd_with_touch_screen_for_asus_zenfone_max_pro_m1_zb601kl_black_by_maxbhi_com_35923.jpg",
-    "name": "display", 
-    "description": "LCD with touch screen for vivo v17 pro-white(Display combo folder)",
-    "price": 300
+        "img": "https://www.maxbhi.com/images/thumbnails/150/150/detailed/3232/lcd_with_touch_screen_for_samsung_galaxy_a20_black_by_maxbhi_com_92953.jpg",
+        "name": "one Plus",
+        "description": "LCD with touch screen for vivo v17 pro-white(Display combo folder)",
+        "price": 300,
+        "stock": 989,
+        "minOrder": 10
     },
     {
-    "brand":"huawei",
-    "img": "https://www.maxbhi.com/images/thumbnails/150/150/detailed/2509/lcd_with_touch_screen_for_asus_zenfone_max_pro_m1_zb601kl_black_by_maxbhi_com_35923.jpg",
-    "name": "display", 
-    "description": "LCD with touch screen for vivo v17 pro-white(Display combo folder)",
-    "price": 300
+        "img": "https://www.maxbhi.com/images/thumbnails/150/150/detailed/2229/lcd_with_touch_screen_for_samsung_galaxy_j7_max_black_by_maxbhi_com_65101.jpg",
+        "name": "Oppo",
+        "description": "LCD with touch screen for vivo v17 pro-white(Display combo folder)",
+        "price": 300,
+        "stock": 980,
+        "minOrder": 10
     },
     {
-    "brand":"huawei",
-    "img": "https://www.maxbhi.com/images/thumbnails/150/150/detailed/2509/lcd_with_touch_screen_for_asus_zenfone_max_pro_m1_zb601kl_black_by_maxbhi_com_35923.jpg",
-    "name": "display", 
-    "description": "LCD with touch screen for vivo v17 pro-white(Display combo folder)",
-    "price": 300
+        "img": "https://www.maxbhi.com/images/thumbnails/150/150/detailed/2509/lcd_with_touch_screen_for_asus_zenfone_max_pro_m1_zb601kl_black_by_maxbhi_com_35923.jpg",
+        "name": "Realme",
+        "description": "LCD with touch screen for vivo v17 pro-white(Display combo folder)",
+        "price": 300,
+        "stock": 120,
+        "minOrder": 10
     },
     {
-    "brand":"huawei",
-    "img": "https://www.maxbhi.com/images/thumbnails/150/150/detailed/2509/lcd_with_touch_screen_for_asus_zenfone_max_pro_m1_zb601kl_black_by_maxbhi_com_35923.jpg",
-    "name": "display", 
-    "description": "LCD with touch screen for vivo v17 pro-white(Display combo folder)",
-    "price": 300
+        "img": "https://www.maxbhi.com/images/thumbnails/150/150/detailed/1517/lcd_with_touch_screen_for_samsung_galaxy_j7_gold_by_maxbhi_com_58509.jpg",
+        "name": "Sony",
+        "description": "LCD with touch screen for vivo v17 pro-white(Display combo folder)",
+        "price": 300,
+        "stock": 899,
+        "minOrder": 10
     },
     {
-    "brand":"huawei",
-    "img": "https://www.maxbhi.com/images/thumbnails/150/150/detailed/2509/lcd_with_touch_screen_for_asus_zenfone_max_pro_m1_zb601kl_black_by_maxbhi_com_35923.jpg",
-    "name": "display", 
-    "description": "LCD with touch screen for vivo v17 pro-white(Display combo folder)",
-    "price": 300
+        "img": "https://www.maxbhi.com/images/thumbnails/150/150/detailed/3692/lcd_with_touch_screen_for_samsung_galaxy_j6_black_by_maxbhi_com_54714.jpg",
+        "name": "pixel",
+        "description": "LCD with touch screen for vivo v17 pro-white(Display combo folder)",
+        "price": 300,
+        "stock": 56,
+        "minOrder": 10
     },
     {
-    "brand":"huawei",
-    "img": "https://www.maxbhi.com/images/thumbnails/150/150/detailed/2509/lcd_with_touch_screen_for_asus_zenfone_max_pro_m1_zb601kl_black_by_maxbhi_com_35923.jpg",
-    "name": "display", 
-    "description": "LCD with touch screen for vivo v17 pro-white(Display combo folder)",
-    "price": 300
+        "img": "https://www.maxbhi.com/images/thumbnails/150/150/detailed/1517/lcd_with_touch_screen_for_samsung_galaxy_j7_black_by_maxbhi_com_16025.jpg",
+        "name": "xperia",
+        "description": "LCD with touch screen for vivo v17 pro-white(Display combo folder)",
+        "price": 300,
+        "stock": 234,
+        "minOrder": 10
     },
     {
-    "brand":"huawei",
-    "img": "https://www.maxbhi.com/images/thumbnails/150/150/detailed/2509/lcd_with_touch_screen_for_asus_zenfone_max_pro_m1_zb601kl_black_by_maxbhi_com_35923.jpg",
-    "name": "display", 
-    "description": "LCD with touch screen for vivo v17 pro-white(Display combo folder)",
-    "price": 300
+        "img": "https://www.maxbhi.com/images/thumbnails/150/150/detailed/3232/lcd_with_touch_screen_for_samsung_galaxy_a20_black_by_maxbhi_com_92953.jpg",
+        "name": "xiomi",
+        "description": "LCD with touch screen for vivo v17 pro-white(Display combo folder)",
+        "price": 300,
+        "stock": 130,
+        "minOrder": 10
     },
     {
-    "brand":"huawei",
-    "img": "https://www.maxbhi.com/images/thumbnails/150/150/detailed/2509/lcd_with_touch_screen_for_asus_zenfone_max_pro_m1_zb601kl_black_by_maxbhi_com_35923.jpg",
-    "name": "display", 
-    "description": "LCD with touch screen for vivo v17 pro-white(Display combo folder)",
-    "price": 300
-    },
-    {
-    "brand":"huawei",
-    "img": "https://www.maxbhi.com/images/thumbnails/150/150/detailed/2509/lcd_with_touch_screen_for_asus_zenfone_max_pro_m1_zb601kl_black_by_maxbhi_com_35923.jpg",
-    "name": "display", 
-    "description": "LCD with touch screen for vivo v17 pro-white(Display combo folder)",
-    "price": 300
-    },
-    {
-    "brand":"huawei",
-    "img": "https://www.maxbhi.com/images/thumbnails/150/150/detailed/2509/lcd_with_touch_screen_for_asus_zenfone_max_pro_m1_zb601kl_black_by_maxbhi_com_35923.jpg",
-    "name": "display", 
-    "description": "LCD with touch screen for vivo v17 pro-white(Display combo folder)",
-    "price": 300
+        "img": "https://www.maxbhi.com/images/thumbnails/150/150/detailed/2229/lcd_with_touch_screen_for_samsung_galaxy_j7_max_black_by_maxbhi_com_65101.jpg",
+        "name": "Nord",
+        "description": "LCD with touch screen for vivo v17 pro-white(Display combo folder)",
+        "price": 300,
+        "stock": 674,
+        "minOrder": 10
     }
+    
 ]

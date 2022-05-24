@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { useParams } from 'react-router-dom';
+import {  useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from '../../Firebase.init';
 
@@ -15,11 +15,11 @@ const Purches = (params) => {
 
     const { _id, img, name, description, price, stock, minOrder } = part
 
-    
+    const navigate = useNavigate();
     const handleSubmit = (event) => {
         event.preventDefault()
 
-        if (event.target.quantity.value > minOrder) {
+        if (event.target.quantity.value >= minOrder && event.target.quantity.value <= stock) {
 
             const order = {
                 productId: _id,
@@ -28,12 +28,27 @@ const Purches = (params) => {
                 price: price * event.target.quantity.value,
                 customerName: user.displayName,
                 email: user.email,
-                phone: event.target.phone.value
+                phone: event.target.phone.value,
+                status:"unpaid"
             }
-            console.log(order)
+            fetch(`http://localhost:5000/order/${_id}`,{
+                method:"POST",
+                headers:{
+                    "content-type":"application/json"
+                },
+                body: JSON.stringify(order)
+            }).then(res=>res.json())
+            .then(data=>{
+               if(data.insertedId){
+                   toast.success("Order Placed");
+                   navigate('/dashboard')
+               }else{
+                toast.error('Something Went wrong')  
+               }
+            })
 
         }else{
-            toast.error('You cant order under min order quantity')
+            toast.error('You can not order under min order quantity or more then stock')
             event.target.reset()}
         
 

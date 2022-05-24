@@ -15,7 +15,7 @@ const Part = ({part}) => {
                     <p>{description}</p>
                     <p className='font-bold'>Price : {price}</p>
                     <div class="card-actions justify-end">
-                        <Link to={`/${_id}`} class="btn btn-primary">Place Order</Link>
+                        <Link to={`/purches/${_id}`} class="btn btn-primary">Place Order</Link>
                     </div>
                 </div>
             </div>
