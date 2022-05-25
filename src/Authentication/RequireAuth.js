@@ -7,6 +7,7 @@ import Loading from '../Components/Loading'
 const RequireAuth = () => {
     const [user , loading] = useAuthState(auth);
     const location = useLocation()
+    
     if(loading){
         return <Loading /> 
     }
