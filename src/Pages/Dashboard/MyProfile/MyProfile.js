@@ -1,13 +1,27 @@
 import React, { useState } from 'react';
 import UpdateProfile from './UpdateProfile'
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../../Firebase.init';
+import Loading from '../../../Components/Loading'
+import { useQuery } from 'react-query';
 
 const MyProfile = () => {
-    const[update,setUpdate]=useState(null)
+    const [update, setUpdate] = useState(null)
 
-    const handleBtn = () => {
-        setUpdate(true)
-        console.log("agh")
-    }
+    const [user] = useAuthState(auth);
+    const { email, displayName, photoURL } = user
+    const img = photoURL || "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyWLjkYKGswBE2f9mynFkd8oPT1W4Gx8RpDQ&usqp=CAU"
+
+
+    const { data: profile, isLoading, refetch } = useQuery(['profile'], () => fetch(`http://localhost:5000/user/${email}`)
+        .then(res => res.json()))
+        
+    if (isLoading) { return <Loading /> }
+
+
+
+    const { education, phone, location, linkedIn } = profile
+
     return (
         <div class="grid grid-cols-1 lg:grid-cols-2 justify-items-center ">
 
@@ -15,36 +29,35 @@ const MyProfile = () => {
                 <div>
                     <div class=" avatar online">
                         <div class="w-48 rounded-full">
-                            <img src="https://api.lorem.space/image/face?hash=28212" alt="" />
+                            <img src={img} alt="" />
                         </div>
                     </div>
                 </div>
                 <div>
-                    <h2 class=" font-bold text-2xl">Sultan Mahmud Ekram </h2>
-                    <p class=" text-xl italic">smahmud1098@gmail.com </p>
+                    <h2 class=" font-bold text-2xl">{displayName}</h2>
+                    <p class=" text-xl italic">{email} </p>
                 </div>
             </div>
 
             <div class="flex justify-center items-center">
 
                 <div class="">
-                    <h2 class="text-xl my-5"><span class="font-semibold">  Education :</span> Undergraduate </h2>
-                    <h2 class="text-xl my-5"><span class="font-semibold">  Location :</span> Ashuganj, Brahmanbaria </h2>
-                    <h2 class="text-xl my-5"><span class="font-semibold">  Phone :</span> 017000000  </h2>
-                    <h2 class="text-xl my-5"><span class="font-semibold">  LinkedIn  :</span> www.linkedin.com  </h2>
-
+                    <h2 class="text-xl my-5"><span class="font-semibold">  Education :</span> {education}</h2>
+                    <h2 class="text-xl my-5"><span class="font-semibold">  Location :</span>{location}</h2>
+                    <h2 class="text-xl my-5"><span class="font-semibold">  Phone :</span> {phone}  </h2>
+                    <h2 class="text-xl my-5"><span class="font-semibold">  LinkedIn  :</span> {linkedIn}  </h2>
                     <label
 
-                        onClick={() => handleBtn()}
+                        onClick={() => setUpdate(true)}
                         className="btn btn-primary text-white 
                           modal-button w-full max-w-xs"
 
                         htmlFor="Appointment-modal"
-                    >Book Now
+                    >update Profile
                     </label>
                 </div>
             </div>
-            {update && <UpdateProfile setUpdate={setUpdate}/>}
+            {update && <UpdateProfile setUpdate={setUpdate}  refetch={refetch}/>}
         </div>
     );
 };

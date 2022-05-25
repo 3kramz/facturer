@@ -3,7 +3,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { toast } from 'react-toastify';
 import auth from '../../../Firebase.init';
 
-const AppoinmentModal = ({setUpdate}) => {
+const AppoinmentModal = ({setUpdate, refetch }) => {
 
     const [user] = useAuthState(auth);
 
@@ -31,6 +31,7 @@ const AppoinmentModal = ({setUpdate}) => {
             
             if(data.result){
                 setUpdate(null)
+                refetch()
                 toast.success("Update Successfully")
             }else{
                 setUpdate(null)
