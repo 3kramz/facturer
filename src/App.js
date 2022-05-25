@@ -4,6 +4,7 @@ import PublicRoutes from './Routes/PublicRoutes';
 import PrivateRoutes from './Routes/PrivateRoutes';
 import RequireAuth from './Authentication/RequireAuth';
 import Dashboard from './Pages/Dashboard/Dashboard';
+import Purches from './Pages/Purches/Purches';
 
 
 import { ToastContainer } from 'react-toastify';
@@ -24,8 +25,9 @@ function App() {
         <Route element={<RequireAuth />} >
           <Route path="/dashboard" element={<Dashboard />}>
           {PrivateRoutes.map(({ Component, path }) => <Route element={<Component />} path={path} />)}
-
           </Route>
+
+          <Route path="/purches/:id" element={<Purches />} />
         </Route>
 
       

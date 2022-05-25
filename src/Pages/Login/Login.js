@@ -31,12 +31,12 @@ const Login = () => {
 
     const { register, formState: { errors }, handleSubmit } = useForm();
 
-    const onSubmit = data => {
-        signInWithEmailAndPassword(data.email, data.password);
-        navigate(from, { replace: true });
+    const onSubmit = async(data) => {
+        await signInWithEmailAndPassword(data.email, data.password);
+         navigate(from, { replace: true });
     }
-    const googleSignIn = data => {
-        signInWithGoogle()
+    const googleSignIn = async (data) => {
+        await signInWithGoogle()
         navigate(from, { replace: true });
     }
 
