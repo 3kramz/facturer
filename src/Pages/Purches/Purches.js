@@ -24,8 +24,8 @@ const Purches = (params) => {
             const order = {
                 productId: _id,
                 productName: name,
-                quantity: event.target.quantity.value,
-                price: price * event.target.quantity.value,
+                quantity:parseInt( event.target.quantity.value),
+                price: price * parseInt(event.target.quantity.value),
                 customerName: user.displayName,
                 email: user.email,
                 address:event.target.address.value,
@@ -42,7 +42,7 @@ const Purches = (params) => {
             .then(data=>{
                if(data.insertedId){
                    toast.success("Order Placed");
-                   navigate('/dashboard')
+                   navigate('/dashboard/my-orders')
                }else{
                 toast.error('Something Went wrong')  
                }

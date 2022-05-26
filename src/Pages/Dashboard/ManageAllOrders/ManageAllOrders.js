@@ -17,18 +17,22 @@ const ManageAllOrders = () => {
                     <thead>
                         <tr>
                             <th></th>
+                            <th> Name</th>
                             <th>Product Name</th>
                             <th>quantity</th>
                             <th>Address</th>
+                            <th>Phone</th>
                             <th>Status</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {orders.map(({productName,quantity,address, status},index)=><tr class="hover">
+                        {orders.map(({productName,quantity,address,customerName,phone, status},index)=><tr class="hover">
                                 <th>{index+1}</th>
+                                <td>{customerName}</td>
                                 <td>{productName}</td>
                                 <td>{quantity}</td>
                                 <td>{address}</td>
+                                <td>{phone}</td>
                                 <td className="text-red-500">{status}</td>
                             </tr>)}
 
