@@ -9,6 +9,7 @@ import Purches from './Pages/Purches/Purches';
 
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import AdminRoutes from './Routes/AdminRoutes';
 
 
 
@@ -25,6 +26,8 @@ function App() {
         <Route element={<RequireAuth />} >
           <Route path="/dashboard" element={<Dashboard />}>
           {PrivateRoutes.map(({ Component, path }) => <Route element={<Component />} path={path} />)}
+
+          {AdminRoutes.map(({ Component, path }) => <Route element={<Component />} path={path} />)}
           </Route>
 
           <Route path="/purches/:id" element={<Purches />} />

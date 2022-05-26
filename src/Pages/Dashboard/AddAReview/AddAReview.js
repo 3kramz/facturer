@@ -36,6 +36,7 @@ const AddAReview = () => {
                                 onClick={() => {
                                     setReview(true)
                                     setId(productId)
+                                    refetch()
                                 }}
                                 className="btn btn-primary text-white 
                                      modal-button w-full max-w-xs"
