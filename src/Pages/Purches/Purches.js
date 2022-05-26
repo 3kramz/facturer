@@ -58,7 +58,7 @@ const Purches = (params) => {
         <div class="hero min-h-screen bg-base-200">
             <div class="hero-content flex-col lg:flex-row">
                 <div class="text-center lg:text-left">
-                    <img src={img} alt="" className="rounded-lg" />
+                    <img src={img} alt="" className="rounded-lg w-[400px]" />
                     <p class="py-6">{description}</p>
                     <h1 class="text-xl font-bold">{name}</h1>
                     <p class="py-2">Stock - {stock}<span className="text-sm font-bold">Unit</span></p>
