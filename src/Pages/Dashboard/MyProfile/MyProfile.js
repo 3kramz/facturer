@@ -15,7 +15,7 @@ const MyProfile = () => {
 
     const { data: profile, isLoading, refetch } = useQuery(['profile'], () => fetch(`http://localhost:5000/user/${email}`)
         .then(res => res.json()))
-        
+
     if (isLoading) { return <Loading /> }
 
 
@@ -47,7 +47,6 @@ const MyProfile = () => {
                     <h2 class="text-xl my-5"><span class="font-semibold">  Phone :</span> {phone}  </h2>
                     <h2 class="text-xl my-5"><span class="font-semibold">  LinkedIn  :</span> {linkedIn}  </h2>
                     <label
-
                         onClick={() => setUpdate(true)}
                         className="btn btn-primary text-white 
                           modal-button w-full max-w-xs"
@@ -57,7 +56,7 @@ const MyProfile = () => {
                     </label>
                 </div>
             </div>
-            {update && <UpdateProfile setUpdate={setUpdate}  refetch={refetch}/>}
+            {update && <UpdateProfile setUpdate={setUpdate} refetch={refetch} />}
         </div>
     );
 };
