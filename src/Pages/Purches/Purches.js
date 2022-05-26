@@ -28,6 +28,7 @@ const Purches = (params) => {
                 price: price * event.target.quantity.value,
                 customerName: user.displayName,
                 email: user.email,
+                address:event.target.address.value,
                 phone: event.target.phone.value,
                 status:"unpaid"
             }
@@ -77,6 +78,7 @@ const Purches = (params) => {
 
 
                         <input type="text" name="phone" placeholder="Phone Number" className="input input-bordered w-full max-w-xs" required />
+
                         <input type="text" name="address" placeholder="Address" className="input input-bordered w-full max-w-xs" required />
 
                         <input type="submit" value="Place Order" className="btn btn-primary text-white w-full max-w-xs" />
