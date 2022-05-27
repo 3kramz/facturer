@@ -28,7 +28,7 @@ const AddPart = () => {
                 if (result.success) {
                     part.img = result.data.url
 
-                    fetch('http://localhost:5000/part', {
+                    fetch('https://powerful-caverns-14505.herokuapp.com/part', {
                         method: 'POST',
                         headers: {
                             'Content-Type': 'application/json', 
@@ -54,18 +54,18 @@ const AddPart = () => {
 
 
     return (
-        <div className="border-t-4 border-primary">
-            <h2 className="text-2xl text-center">Add a New Part</h2>
-            <form onSubmit={handleSubmit(onSubmit)}  className="mx-auto w-full max-w-md">
+        <div  className="border-t-4 border-primary">
+            <h2  className="text-2xl text-center">Add a New Part</h2>
+            <form onSubmit={handleSubmit(onSubmit)}   className="mx-auto w-full max-w-md">
 
-                <div className="form-control w-full max-w-md">
-                    <label className="label">
-                        <span className="label-text">Part Name</span>
+                <div  className="form-control w-full max-w-md">
+                    <label  className="label">
+                        <span  className="label-text">Part Name</span>
                     </label>
                     <input
                         type="text"
                         placeholder="Part Name"
-                        className="input input-bordered w-full max-w-md"
+                         className="input input-bordered w-full max-w-md"
                         {...register("name", {
                             required: {
                                 value: true,
@@ -73,21 +73,21 @@ const AddPart = () => {
                             }
                         })}
                     />
-                    <label className="label">
-                        {errors.name?.type === 'required' && <span className="label-text-alt text-red-500">{errors.name.message}</span>}
+                    <label  className="label">
+                        {errors.name?.type === 'required' && <span  className="label-text-alt text-red-500">{errors.name.message}</span>}
                     </label>
                 </div>
 
 
 
-                <div className="form-control w-full max-w-md">
-                    <label className="label">
-                        <span className="label-text">Part Description</span>
+                <div  className="form-control w-full max-w-md">
+                    <label  className="label">
+                        <span  className="label-text">Part Description</span>
                     </label>
                     <input
                         type="text"
                         placeholder="Part description"
-                        className="input input-bordered w-full max-w-md"
+                         className="input input-bordered w-full max-w-md"
                         {...register("description", {
                             required: {
                                 value: true,
@@ -95,21 +95,21 @@ const AddPart = () => {
                             }
                         })}
                     />
-                    <label className="label">
-                        {errors.description?.type === 'required' && <span className="label-text-alt text-red-500">{errors.description.message}</span>}
+                    <label  className="label">
+                        {errors.description?.type === 'required' && <span  className="label-text-alt text-red-500">{errors.description.message}</span>}
                     </label>
                 </div>
 
 
 
-                <div className="form-control w-full max-w-md">
-                    <label className="label">
-                        <span className="label-text">Part price</span>
+                <div  className="form-control w-full max-w-md">
+                    <label  className="label">
+                        <span  className="label-text">Part price</span>
                     </label>
                     <input
                         type="number"
                         placeholder="Part price"
-                        className="input input-bordered w-full max-w-md"
+                         className="input input-bordered w-full max-w-md"
                         {...register("price", {
                             required: {
                                 value: true,
@@ -117,19 +117,19 @@ const AddPart = () => {
                             }
                         })}
                     />
-                    <label className="label">
-                        {errors.price?.type === 'required' && <span className="label-text-alt text-red-500">{errors.price.message}</span>}
+                    <label  className="label">
+                        {errors.price?.type === 'required' && <span  className="label-text-alt text-red-500">{errors.price.message}</span>}
                     </label>
                 </div>
 
-                <div className="form-control w-full max-w-md">
-                    <label className="label">
-                        <span className="label-text">Part stock</span>
+                <div  className="form-control w-full max-w-md">
+                    <label  className="label">
+                        <span  className="label-text">Part stock</span>
                     </label>
                     <input
                         type="number"
                         placeholder="Part stock"
-                        className="input input-bordered w-full max-w-md"
+                         className="input input-bordered w-full max-w-md"
                         {...register("stock", {
                             required: {
                                 value: true,
@@ -137,19 +137,19 @@ const AddPart = () => {
                             }
                         })}
                     />
-                    <label className="label">
-                        {errors.stock?.type === 'required' && <span className="label-text-alt text-red-500">{errors.stock.message}</span>}
+                    <label  className="label">
+                        {errors.stock?.type === 'required' && <span  className="label-text-alt text-red-500">{errors.stock.message}</span>}
                     </label>
                 </div>
 
-                <div className="form-control w-full max-w-md">
-                    <label className="label">
-                        <span className="label-text">Part Minimum Order</span>
+                <div  className="form-control w-full max-w-md">
+                    <label  className="label">
+                        <span  className="label-text">Part Minimum Order</span>
                     </label>
                     <input
                         type="number"
                         placeholder="Part Minimum Order"
-                        className="input input-bordered w-full max-w-md"
+                         className="input input-bordered w-full max-w-md"
                         {...register("minOrder", {
                             required: {
                                 value: true,
@@ -157,19 +157,19 @@ const AddPart = () => {
                             }
                         })}
                     />
-                    <label className="label">
-                        {errors.minOrder?.type === 'required' && <span className="label-text-alt text-red-500">{errors.minOrder.message}</span>}
+                    <label  className="label">
+                        {errors.minOrder?.type === 'required' && <span  className="label-text-alt text-red-500">{errors.minOrder.message}</span>}
                     </label>
                 </div>
 
 
-                <div className="form-control w-full max-w-md">
-                    <label className="label">
-                        <span className="label-text">Photo</span>
+                <div  className="form-control w-full max-w-md">
+                    <label  className="label">
+                        <span  className="label-text">Photo</span>
                     </label>
                     <input
                         type="file"
-                        className="input input-bordered w-full max-w-md"
+                         className="input input-bordered w-full max-w-md"
                         {...register("image", {
                             required: {
                                 value: true,
@@ -177,12 +177,12 @@ const AddPart = () => {
                             }
                         })}
                     />
-                    <label className="label">
-                        {errors.name?.type === 'required' && <span className="label-text-alt text-red-500">{errors.name.message}</span>}
+                    <label  className="label">
+                        {errors.name?.type === 'required' && <span  className="label-text-alt text-red-500">{errors.name.message}</span>}
                     </label>
                 </div>
 
-                <input className='btn w-full max-w-md text-white' type="submit" value="Add" />
+                <input  className='btn w-full max-w-md text-white' type="submit" value="Add" />
             </form>
         </div>
     );

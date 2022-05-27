@@ -4,7 +4,7 @@ import Loading from '../../../Components/Loading';
 
 const ManageAllOrders = () => {
   
-    const { data: orders, isLoading } = useQuery(['order'], () => fetch(`http://localhost:5000/order`, {
+    const { data: orders, isLoading } = useQuery(['order'], () => fetch(`https://powerful-caverns-14505.herokuapp.com/order`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json', 
@@ -18,8 +18,8 @@ const ManageAllOrders = () => {
 
     return (
         <div>
-            <div class="overflow-x-auto">
-                <table class="table w-full">
+            <div className="overflow-x-auto">
+                <table className="table w-full">
 
                     <thead>
                         <tr>
@@ -33,14 +33,14 @@ const ManageAllOrders = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {orders.map(({productName,quantity,address,customerName,phone, status},index)=><tr class="hover">
+                        {orders.map(({productName,quantity,address,customerName,phone, status},index)=><tr key={index} className="hover">
                                 <th>{index+1}</th>
                                 <td>{customerName}</td>
                                 <td>{productName}</td>
                                 <td>{quantity}</td>
                                 <td>{address}</td>
                                 <td>{phone}</td>
-                                <td className="text-red-500">{status}</td>
+                                <td  className="text-red-500">{status}</td>
                             </tr>)}
 
                             

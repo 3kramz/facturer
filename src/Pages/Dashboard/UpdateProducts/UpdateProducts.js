@@ -8,7 +8,7 @@ const UpdateProducts = () => {
     const [update, setUpdate] = useState(null)
     const [id, setId] = useState("")
 
-    const { data: parts, isLoading, refetch } = useQuery(['order'], () => fetch(`http://localhost:5000/parts`)
+    const { data: parts, isLoading, refetch } = useQuery(['order'], () => fetch(`https://powerful-caverns-14505.herokuapp.com/parts`)
         .then(res => res.json()))
 
     if (isLoading) {
@@ -17,10 +17,10 @@ const UpdateProducts = () => {
 
     return (
         <div>
-            <p className="text-5xl">Update products</p>
+            <p  className="text-5xl">Update products</p>
 
-            <div class="overflow-x-auto">
-                <table class="table w-full">
+            <div className="overflow-x-auto">
+                <table className="table w-full">
                     <thead>
                         <tr>
                             <th></th>
@@ -32,7 +32,7 @@ const UpdateProducts = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {parts.map(({ _id, name, stock, price }, index) => <tr className={_id}>
+                        {parts.map(({ _id, name, stock, price }, index) => <tr key={index} className={_id}>
                             <th>{index}</th>
                             <td>{name}</td>
                             <td>{stock}</td>
@@ -44,7 +44,7 @@ const UpdateProducts = () => {
 
                                     refetch()
                                 }}
-                                className="btn btn-primary text-white 
+                                 className="btn btn-primary text-white 
                                      modal-button w-full max-w-xs"
 
                                 htmlFor="product-modal"

@@ -10,7 +10,7 @@ const Purches = (params) => {
     const [part, setPart] = useState({})
 
     useEffect(() => {
-        fetch(`http://localhost:5000/part/${id}`).then(res => res.json()).then(data => setPart(data))
+        fetch(`https://powerful-caverns-14505.herokuapp.com/part/${id}`).then(res => res.json()).then(data => setPart(data))
     }, [id])
 
     const { _id, img, name, description, price, stock, minOrder } = part
@@ -32,7 +32,7 @@ const Purches = (params) => {
                 phone: event.target.phone.value,
                 status:"unpaid"
             }
-            fetch(`http://localhost:5000/order/${_id}`,{
+            fetch(`https://powerful-caverns-14505.herokuapp.com/order/${_id}`,{
                 method:"POST",
                 headers:{
                     "content-type":"application/json", 
@@ -57,32 +57,32 @@ const Purches = (params) => {
     }
 
     return (
-        <div class="hero min-h-screen bg-base-200">
-            <div class="hero-content flex-col lg:flex-row">
-                <div class="text-center lg:text-left">
-                    <img src={img} alt="" className="rounded-lg w-[400px]" />
-                    <p class="py-6">{description}</p>
-                    <h1 class="text-xl font-bold">{name}</h1>
-                    <p class="py-2">Stock - {stock}<span className="text-sm font-bold">Unit</span></p>
-                    <p class="py-2">Minimum Order - {minOrder}<span className="text-sm font-bold">Unit</span></p>
-                    <p class="py-2">Price per Unit - {price}<span className="text-sm font-bold">Unit</span></p>
+        <div className="hero min-h-screen bg-base-200">
+            <div className="hero-content flex-col lg:flex-row">
+                <div className="text-center lg:text-left">
+                    <img src={img} alt=""  className="rounded-lg w-[400px]" />
+                    <p className="py-6">{description}</p>
+                    <h1 className="text-xl font-bold">{name}</h1>
+                    <p className="py-2">Stock - {stock}<span  className="text-sm font-bold">Unit</span></p>
+                    <p className="py-2">Minimum Order - {minOrder}<span  className="text-sm font-bold">Unit</span></p>
+                    <p className="py-2">Price per Unit - {price}<span  className="text-sm font-bold">Unit</span></p>
 
                 </div>
-                <div class="card flex-shrink-0 w-full max-w-sm ">
-                    <form onSubmit={handleSubmit} className='grid grid-cols-1 gap-3 justify-items-center mt-2'>
+                <div className="card flex-shrink-0 w-full max-w-sm ">
+                    <form onSubmit={handleSubmit}  className='grid grid-cols-1 gap-3 justify-items-center mt-2'>
 
-                        <input type="text" name="name" value={user?.displayName || ''} placeholder="Your Name" className="input input-bordered w-full max-w-xs" readOnly />
+                        <input type="text" name="name" value={user?.displayName || ''} placeholder="Your Name"  className="input input-bordered w-full max-w-xs" readOnly />
 
-                        <input type="email" name="email" value={user?.email || ''} placeholder="Email Address" className="input input-bordered w-full max-w-xs" readOnly />
+                        <input type="email" name="email" value={user?.email || ''} placeholder="Email Address"  className="input input-bordered w-full max-w-xs" readOnly />
 
-                        <input type="number" name="quantity" placeholder={`Min Order Quantity ${minOrder}`} className="input input-bordered w-full max-w-xs" />
+                        <input type="number" name="quantity" placeholder={`Min Order Quantity ${minOrder}`}  className="input input-bordered w-full max-w-xs" />
 
 
-                        <input type="text" name="phone" placeholder="Phone Number" className="input input-bordered w-full max-w-xs" required />
+                        <input type="text" name="phone" placeholder="Phone Number"  className="input input-bordered w-full max-w-xs" required />
 
-                        <input type="text" name="address" placeholder="Address" className="input input-bordered w-full max-w-xs" required />
+                        <input type="text" name="address" placeholder="Address"  className="input input-bordered w-full max-w-xs" required />
 
-                        <input type="submit" value="Place Order" className="btn btn-primary text-white w-full max-w-xs" />
+                        <input type="submit" value="Place Order"  className="btn btn-primary text-white w-full max-w-xs" />
 
                     </form>
                 </div>

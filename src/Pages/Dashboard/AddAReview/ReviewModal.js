@@ -10,7 +10,7 @@ const ReviewModal = ({setReview, refetch ,id }) => {
         const review = {
           review:e.target.review.value
         }
-        fetch(`http://localhost:5000/review/${id}`,{
+        fetch(`https://powerful-caverns-14505.herokuapp.com/review/${id}`,{
             method:'PUT',
             headers:{
                 'content-Type':'application/json', 
@@ -34,16 +34,16 @@ const ReviewModal = ({setReview, refetch ,id }) => {
     return (
 
         <div>
-            <input type="checkbox" id="product-modal" className="modal-toggle" />
-            <div className="modal modal-bottom sm:modal-middle">
-                <div className="modal-box">
-                    <label htmlFor="product-modal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-                    <h3 className="font-bold text-2xl text-center text-secondary">Give Your valuable review</h3>
-                    <form onSubmit={handleSubmit} className='grid grid-cols-1 gap-3 justify-items-center mt-2'>
+            <input type="checkbox" id="product-modal"  className="modal-toggle" />
+            <div  className="modal modal-bottom sm:modal-middle">
+                <div  className="modal-box">
+                    <label htmlFor="product-modal"  className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+                    <h3  className="font-bold text-2xl text-center text-secondary">Give Your valuable review</h3>
+                    <form onSubmit={handleSubmit}  className='grid grid-cols-1 gap-3 justify-items-center mt-2'>
 
-                        <textarea type="text" name="review" placeholder="Review.." className="input input-bordered w-full max-w-xs" required />
+                        <textarea type="text" name="review" placeholder="Review.."  className="input input-bordered w-full max-w-xs" required />
 
-                        <input type="submit" value="post Review" className="btn btn-primary text-white w-full max-w-xs" />
+                        <input type="submit" value="post Review"  className="btn btn-primary text-white w-full max-w-xs" />
                     </form>
 
                 </div>

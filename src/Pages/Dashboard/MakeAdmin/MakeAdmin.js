@@ -5,7 +5,7 @@ import Loading from '../../../Components/Loading'
 
 const MakeAdmin = () => {
 
-    const { data: users, isLoading, refetch } = useQuery('users', () => fetch('http://localhost:5000/users', {
+    const { data: users, isLoading, refetch } = useQuery('users', () => fetch('https://powerful-caverns-14505.herokuapp.com/users', {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -18,7 +18,7 @@ const MakeAdmin = () => {
 
 
     const makeAdmin = (email) => {
-        fetch(`http://localhost:5000/user/admin/${email}`, {
+        fetch(`https://powerful-caverns-14505.herokuapp.com/user/admin/${email}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
@@ -43,8 +43,8 @@ const MakeAdmin = () => {
 
 
     return (
-        <div className="overflow-x-auto">
-            <table className="table w-full">
+        <div  className="overflow-x-auto">
+            <table  className="table w-full">
 
                 <thead>
                     <tr>
@@ -63,7 +63,7 @@ const MakeAdmin = () => {
                                 <th>{i + 1}</th>
                                 <td>{user.email}</td>
 
-                                <td>{user.role !== "Admin" ? <button onClick={() => makeAdmin(user.email)} className="btn n-primary btn-xs">Make Admin</button> : user.role}</td>
+                                <td>{user.role !== "Admin" ? <button onClick={() => makeAdmin(user.email)}  className="btn n-primary btn-xs">Make Admin</button> : user.role}</td>
 
 
                             </tr>)

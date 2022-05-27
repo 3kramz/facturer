@@ -39,24 +39,24 @@ const Login = () => {
 
     let signInError;
     if (error || gError) {
-        signInError = <p className='text-red-500'><small>{error?.message || gError?.message}</small></p>
+        signInError = <p  className='text-red-500'><small>{error?.message || gError?.message}</small></p>
     }
 
 
    
     return (
-        <div class="hero min-h-screen bg-base-200 justify-items-center">
-            <div class="hero-content flex-col lg:flex-row-reverse">
-                <div class="text-center lg:text-left">
-                    <h1 class="text-5xl font-bold">Login now!</h1>
-                    <p class="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
+        <div className="hero min-h-screen bg-base-200 justify-items-center">
+            <div className="hero-content flex-col lg:flex-row-reverse">
+                <div className="text-center lg:text-left">
+                    <h1 className="text-5xl font-bold">Login now!</h1>
+                    <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
                 </div>
-                <div class="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                    <div class="card-body">
+                <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                    <div className="card-body">
                         <form onSubmit={handleSubmit(onSubmit)}>
-                            <div className="form-control w-full max-w-xs">
-                                <label className="label">
-                                    <span className="label-text">Email</span>
+                            <div  className="form-control w-full max-w-xs">
+                                <label  className="label">
+                                    <span  className="label-text">Email</span>
                                 </label>
 
                                 <input
@@ -73,22 +73,22 @@ const Login = () => {
                                     })}
                                     type="text"
                                     placeholder="email"
-                                    className="input input-bordered w-full max-w-xs"
+                                     className="input input-bordered w-full max-w-xs"
                                 />
 
-                                <label className="label">
-                                    {errors.email?.type === 'required' && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
-                                    {errors.email?.type === 'pattern' && <span className="label-text-alt text-red-500">{errors.email.message}</span>}
+                                <label  className="label">
+                                    {errors.email?.type === 'required' && <span  className="label-text-alt text-red-500">{errors.email.message}</span>}
+                                    {errors.email?.type === 'pattern' && <span  className="label-text-alt text-red-500">{errors.email.message}</span>}
                                 </label>
                             </div>
-                            <div className="form-control w-full max-w-xs">
-                                <label className="label">
-                                    <span className="label-text">Password</span>
+                            <div  className="form-control w-full max-w-xs">
+                                <label  className="label">
+                                    <span  className="label-text">Password</span>
                                 </label>
                                 <input
                                     type="password"
                                     placeholder="Password"
-                                    className="input input-bordered w-full max-w-xs"
+                                     className="input input-bordered w-full max-w-xs"
                                     {...register("password", {
                                         required: {
                                             value: true,
@@ -100,19 +100,19 @@ const Login = () => {
                                         }
                                     })}
                                 />
-                                <label className="label">
-                                    {errors.password?.type === 'required' && <span className="label-text-alt text-red-500">{errors.password.message}</span>}
-                                    {errors.password?.type === 'minLength' && <span className="label-text-alt text-red-500">{errors.password.message}</span>}
+                                <label  className="label">
+                                    {errors.password?.type === 'required' && <span  className="label-text-alt text-red-500">{errors.password.message}</span>}
+                                    {errors.password?.type === 'minLength' && <span  className="label-text-alt text-red-500">{errors.password.message}</span>}
                                 </label>
                             </div>
                             {signInError}
-                            <input className='btn w-full max-w-xs text-white' type="submit" value="Login" />
+                            <input  className='btn w-full max-w-xs text-white' type="submit" value="Login" />
                         </form>
-                        <p><small>New to Facturer ? <Link className='text-primary' to="/signup">Create Account </Link></small></p>
-                        <div className="divider">OR</div>
+                        <p><small>New to Facturer ? <Link  className='text-primary' to="/signup">Create Account </Link></small></p>
+                        <div  className="divider">OR</div>
                         <button
                             onClick={() => signInWithGoogle()}
-                            className="btn btn-outline">
+                             className="btn btn-outline">
                             Connect With Google
                         </button>
                     </div>

@@ -3,7 +3,7 @@ import CircleLoader	 from 'react-spinners/CircleLoader'
 
 const Loading = () => {
     return (
-        <div className="flex justify-center items-center">
+        <div  className="flex justify-center items-center">
             <CircleLoader size={80}/>
         </div>
     );

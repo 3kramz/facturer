@@ -18,7 +18,7 @@ const Dashboard = () => {
     const [adminLoading, setAdminLoading] = useState(true)
     useEffect(() => {
         const email = user?.email
-        fetch(`http://localhost:5000/user/${email}`,{
+        fetch(`https://powerful-caverns-14505.herokuapp.com/user/${email}`,{
         method:"GET",
         headers:{
             "content-type":"application/json" , 
@@ -50,18 +50,18 @@ const Dashboard = () => {
 
     return (
         <>
-            <label for="dashboard" class="ml-4  drawer-button lg:hidden mt-46">
-                <kbd class="kbd text-black">⌘</kbd>
+            <label htmlFor="dashboard" className="ml-4  drawer-button lg:hidden mt-46">
+                <kbd className="kbd text-black">⌘</kbd>
             </label>
-            <div class="drawer drawer-mobile">
+            <div className="drawer drawer-mobile">
 
-                <input id="dashboard" type="checkbox" class="drawer-toggle" />
-                <div class="drawer-content ">
+                <input id="dashboard" type="checkbox" className="drawer-toggle" />
+                <div className="drawer-content ">
                     <Outlet />
                 </div>
-                <div class="drawer-side">
-                    <label for="dashboard" class="drawer-overlay"></label>
-                    <ul class="menu p-4 overflow-y-auto w-80 bg-base-100 text-base-content border-r-2 ">
+                <div className="drawer-side">
+                    <label htmlFor="dashboard" className="drawer-overlay"></label>
+                    <ul className="menu p-4 overflow-y-auto w-80 bg-base-100 text-base-content border-r-2 ">
                         {!admin ? privateLink: adminLink}
                     </ul>
 

@@ -19,7 +19,7 @@ const AppoinmentModal = ({setUpdate, refetch }) => {
             linkedIn: e.target.linkedIn.value
         }
 
-        fetch(`http://localhost:5000/user/${user.email}`,{
+        fetch(`https://powerful-caverns-14505.herokuapp.com/user/${user.email}`,{
             method:'PUT',
             headers:{
                 'content-Type':'application/json',
@@ -49,23 +49,23 @@ const AppoinmentModal = ({setUpdate, refetch }) => {
     return (
 
         <div>
-            <input type="checkbox" id="Appointment-modal" className="modal-toggle" />
-            <div className="modal modal-bottom sm:modal-middle">
-                <div className="modal-box">
-                    <label htmlFor="Appointment-modal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-                    <h3 className="font-bold text-2xl text-center text-secondary">Update Your Profile</h3>
-                    <form onSubmit={handleSubmit} className='grid grid-cols-1 gap-3 justify-items-center mt-2'>
+            <input type="checkbox" id="Appointment-modal"  className="modal-toggle" />
+            <div  className="modal modal-bottom sm:modal-middle">
+                <div  className="modal-box">
+                    <label htmlFor="Appointment-modal"  className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+                    <h3  className="font-bold text-2xl text-center text-secondary">Update Your Profile</h3>
+                    <form onSubmit={handleSubmit}  className='grid grid-cols-1 gap-3 justify-items-center mt-2'>
 
                         
-                        <input type="text" name="education" placeholder="Education" className="input input-bordered w-full max-w-xs" />
+                        <input type="text" name="education" placeholder="Education"  className="input input-bordered w-full max-w-xs" />
 
-                        <input type="text" name="location"  placeholder="Location" className="input input-bordered w-full max-w-xs" />
+                        <input type="text" name="location"  placeholder="Location"  className="input input-bordered w-full max-w-xs" />
 
-                        <input type="text" name="phone" placeholder="Phone Number" className="input input-bordered w-full max-w-xs" required />
+                        <input type="text" name="phone" placeholder="Phone Number"  className="input input-bordered w-full max-w-xs" required />
 
-                        <input type="text" name="linkedIn" placeholder="LinkedIn Profile Link " className="input input-bordered w-full max-w-xs" required />
+                        <input type="text" name="linkedIn" placeholder="LinkedIn Profile Link "  className="input input-bordered w-full max-w-xs" required />
 
-                        <input type="submit" value="Update Profile" className="btn btn-primary text-white w-full max-w-xs" />
+                        <input type="submit" value="Update Profile"  className="btn btn-primary text-white w-full max-w-xs" />
 
                     </form>
 

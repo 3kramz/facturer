@@ -9,7 +9,7 @@ const AddAReview = () => {
     const [review, setReview] = useState(null)
     const [id, setId] = useState("")
     const [user] = useAuthState(auth);
-    const { data: orders, isLoading, refetch } = useQuery(['order'], () => fetch(`http://localhost:5000/order/${user.email}`,{
+    const { data: orders, isLoading, refetch } = useQuery(['order'], () => fetch(`https://powerful-caverns-14505.herokuapp.com/order/${user.email}`,{
         method:"GET",
         headers:{
             "content-type":"application/json", 
@@ -22,8 +22,8 @@ const AddAReview = () => {
 
     return (
         <div>
-            <div class="overflow-x-auto">
-                <table class="table w-full">
+            <div className="overflow-x-auto">
+                <table className="table w-full">
 
                     <thead>
                         <tr>
@@ -34,17 +34,19 @@ const AddAReview = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {orders.map(({ productName, review, status, productId }, index) => <tr class="hover">
+                        {orders.map(({ productName, review, status, productId }, index) => <tr 
+                        key={index}
+                        className="hover">
                             <th>{index + 1}</th>
                             <td>{productName}</td>
                             <td>{review}</td>
-                            <td>{status !== "unpaid" ? <button class="btn btn-sm">Pay</button> : <label
+                            <td>{status !== "unpaid" ? <button className="btn btn-sm">Pay</button> : <label
                                 onClick={() => {
                                     setReview(true)
                                     setId(productId)
                                     refetch()
                                 }}
-                                className="btn btn-primary text-white 
+                                 className="btn btn-primary text-white 
                                      modal-button w-full max-w-xs"
 
                                 htmlFor="product-modal"

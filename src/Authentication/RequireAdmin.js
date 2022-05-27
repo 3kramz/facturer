@@ -1,42 +1,27 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Navigate, Outlet, useLocation } from 'react-router-dom';
 import auth from '../Firebase.init';
 import Loading from '../Components/Loading'
+import useAdmin from '../Hooks/useAdmin';
 
 const RequireAdmin = () => {
-    const [user , loading] = useAuthState(auth);
+    const [user, loading] = useAuthState(auth);
 
-    const [admin, setAdmin]=useState(false)
-    const [adminLoading, setAdminLoading]=useState(true)
-    useEffect(()=>{
-        const email = user?.email
-        fetch(`http://localhost:5000/admin/${email}`,{
-                method:"GET",
-                headers:{
-                    "content-type":"application/json", 
-                    'authorization': `Bearer ${localStorage.getItem('accessToken')}`
-                }
-            })
-        .then(res=>res.json())
-        .then(data=>{
-            setAdminLoading(false)
-            setAdmin(data.admin)
-        })
-    },[user])
+    const [admin, adminLoading] = useAdmin(user)
 
     const location = useLocation()
-    
-    if(adminLoading ||loading){
-        return <Loading /> 
+
+    if (adminLoading || loading) {
+        return <Loading />
     }
 
-     else if (!admin) {
+    else if (!admin) {
         return <Navigate to="/login " state={{ from: location }} replace />
     }
 
     else {
-       return <Outlet />
+        return <Outlet />
     }
 };
 

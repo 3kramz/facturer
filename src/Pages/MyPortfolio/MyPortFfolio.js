@@ -2,17 +2,17 @@ import React from 'react';
 
 const MyPortFfolio = () => {
     return (
-        <div className="p-10">
-            <div class="card p-5 bg-base-100 shadow-xl">
-                <div class="avatar card-body items-center text-center">
-                    <div class="w-60  rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+        <div  className="p-10">
+            <div className="card p-5 bg-base-100 shadow-xl">
+                <div className="avatar card-body items-center text-center">
+                    <div className="w-60  rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
                         <img src="https://i.ibb.co/B6yF332/msg1376083639-323.jpg" alt="" />
                     </div>
                 </div>
-                <div class="card-body items-center text-center">
-                    <h2 class="card-title text-3xl">Sultan Mahmud Ekram</h2>
+                <div className="card-body items-center text-center">
+                    <h2 className="card-title text-3xl">Sultan Mahmud Ekram</h2>
                     <p> I have just over a year of experience as a junior software engineer with First Technology. In my short time there, I've already contributed to over a dozen projects and assisted with managing one project for one of the firm's long-time clients</p>
-                    <table class="table w-full mx-auto">
+                    <table className="table w-full mx-auto">
                         <tbody>
 
                             <tr>
