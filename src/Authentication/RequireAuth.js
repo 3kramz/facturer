@@ -6,13 +6,15 @@ import Loading from '../Components/Loading'
 
 const RequireAuth = () => {
     const [user , loading] = useAuthState(auth);
+    
     const location = useLocation()
     
-    if(loading){
+    if(loading ){
         return <Loading /> 
     }
 
-     else if (!user) {
+    
+     else if (!user ) {
         return <Navigate to="/login " state={{ from: location }} replace />
     }
 

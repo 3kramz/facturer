@@ -10,6 +10,11 @@ const AddPart = () => {
 
     const onSubmit = async data => {
         const part = { ...data }
+
+        part.minOrder= parseInt(data.minOrder)
+        part.price= parseInt(data.price)
+        part.stock= parseInt(data.stock)
+
         const formData = new FormData();
         const image = data.image[0]
         formData.append('image', image);
@@ -26,7 +31,8 @@ const AddPart = () => {
                     fetch('http://localhost:5000/part', {
                         method: 'POST',
                         headers: {
-                            'Content-Type': 'application/json',
+                            'Content-Type': 'application/json', 
+                            'authorization': `Bearer ${localStorage.getItem('accessToken')}`
 
                         },
                         body: JSON.stringify(part),

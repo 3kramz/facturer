@@ -13,7 +13,13 @@ const MyProfile = () => {
     const img = photoURL || "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSyWLjkYKGswBE2f9mynFkd8oPT1W4Gx8RpDQ&usqp=CAU"
 
 
-    const { data: profile, isLoading, refetch } = useQuery(['profile'], () => fetch(`http://localhost:5000/user/${email}`)
+    const { data: profile, isLoading, refetch } = useQuery(['profile'], () => fetch(`http://localhost:5000/user/${email}`,{
+        method:"GET",
+        headers:{
+            "content-type":"application/json" , 
+            'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+        }
+    })
         .then(res => res.json()))
 
     if (isLoading) { return <Loading /> }

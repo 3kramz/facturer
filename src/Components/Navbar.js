@@ -9,7 +9,6 @@ const Navbar = () => {
     const li = <>
 
         <li><NavLink to="/home">Home</NavLink></li>
-        <li><NavLink to="/review">Review</NavLink></li>
         <li><NavLink to="/parts">Parts</NavLink></li>
         {user && <li><Link to="/dashboard">Dashboard</Link></li>}
         

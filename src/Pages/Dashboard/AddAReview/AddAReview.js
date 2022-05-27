@@ -9,7 +9,13 @@ const AddAReview = () => {
     const [review, setReview] = useState(null)
     const [id, setId] = useState("")
     const [user] = useAuthState(auth);
-    const { data: orders, isLoading, refetch } = useQuery(['order'], () => fetch(`http://localhost:5000/order/${user.email}`)
+    const { data: orders, isLoading, refetch } = useQuery(['order'], () => fetch(`http://localhost:5000/order/${user.email}`,{
+        method:"GET",
+        headers:{
+            "content-type":"application/json", 
+            'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+        }
+    })
         .then(res => res.json()))
 
     if (isLoading) { return <Loading /> }

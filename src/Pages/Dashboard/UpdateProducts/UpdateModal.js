@@ -19,14 +19,15 @@ const UpdateModal = ({ setUpdate, refetch, id }) => {
     const updatePrice = e => {
         e.preventDefault()
         const UpdatedPrice = {
-            price: e.target.price.value
+            price: parseInt(e.target.price.value)
         }
 
 
         fetch(`http://localhost:5000/update/${id}`, {
             method: 'PUT',
             headers: {
-                'content-Type': 'application/json'
+                'content-Type': 'application/json', 
+                'authorization': `Bearer ${localStorage.getItem('accessToken')}`
             },
             body: JSON.stringify(UpdatedPrice)
         })
@@ -47,16 +48,18 @@ const UpdateModal = ({ setUpdate, refetch, id }) => {
 
 
     const updateStock = e => {
-        console.log(e.target.stock.value)
+        e.preventDefault()
+
         const UpdatedStock = {
-            stock: e.target.stock.value + stock
+            stock: parseInt(e.target.stock.value) + parseInt(stock) 
         }
 
 
         fetch(`http://localhost:5000/update/${id}`, {
             method: 'PUT',
             headers: {
-                'content-Type': 'application/json'
+                'content-Type': 'application/json', 
+                'authorization': `Bearer ${localStorage.getItem('accessToken')}`
             },
             body: JSON.stringify(UpdatedStock)
         })

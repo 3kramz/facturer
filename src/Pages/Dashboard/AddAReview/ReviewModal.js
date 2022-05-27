@@ -10,17 +10,16 @@ const ReviewModal = ({setReview, refetch ,id }) => {
         const review = {
           review:e.target.review.value
         }
-console.log(id, review)
         fetch(`http://localhost:5000/review/${id}`,{
             method:'PUT',
             headers:{
-                'content-Type':'application/json'
+                'content-Type':'application/json', 
+                'authorization': `Bearer ${localStorage.getItem('accessToken')}`
             },
             body:JSON.stringify(review)
         })
         .then(res=>res.json())
         .then(data=>{
-            
             if(data.modifiedCount||data.upsertedCount){
                 setReview(null)
                 refetch()

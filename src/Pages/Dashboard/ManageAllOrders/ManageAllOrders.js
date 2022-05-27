@@ -4,7 +4,14 @@ import Loading from '../../../Components/Loading';
 
 const ManageAllOrders = () => {
   
-    const { data: orders, isLoading } = useQuery(['order'], () => fetch(`http://localhost:5000/order`)
+    const { data: orders, isLoading } = useQuery(['order'], () => fetch(`http://localhost:5000/order`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json', 
+            'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+
+        }
+    })
         .then(res => res.json()))
 
     if (isLoading) { return <Loading /> }

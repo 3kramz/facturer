@@ -11,40 +11,35 @@ import useToken from '../../Hooks/UseToken';
 const Login = () => {
 
 
-    const [signInWithGoogle, user, gLoading, gError] = useSignInWithGoogle(auth);
-    const [signInWithEmailAndPassword, gUser, loading, error] = useSignInWithEmailAndPassword(auth);
-
+    
+    const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
+    const [
+        signInWithEmailAndPassword,
+        user,
+        loading,
+        error,
+    ] = useSignInWithEmailAndPassword(auth);
     const navigate = useNavigate();
     const location = useLocation();
-
     let from = location.state?.from?.pathname || "/";
-
-    const [token] = useToken(user || gUser)
-
+ 
+    const [ token ] = useToken(user || gUser)
     useEffect(() => {
         if (token) {
             navigate(from, { replace: true });
         }
     }, [token, from, navigate])
-
-
+   
 
     const { register, formState: { errors }, handleSubmit } = useForm();
 
-    const onSubmit = async(data) => {
-        await signInWithEmailAndPassword(data.email, data.password);
-         navigate(from, { replace: true });
-    }
-    const googleSignIn = async (data) => {
-        await signInWithGoogle()
-        navigate(from, { replace: true });
-    }
+    const onSubmit = data => signInWithEmailAndPassword(data.email, data.password);
 
     if (loading || gLoading) { return <Loading /> }
 
-    let ErrorInSignin;
+    let signInError;
     if (error || gError) {
-        ErrorInSignin = <p className='text-red-500'><small>{error?.message || gError?.message}</small></p>
+        signInError = <p className='text-red-500'><small>{error?.message || gError?.message}</small></p>
     }
 
 
@@ -110,13 +105,13 @@ const Login = () => {
                                     {errors.password?.type === 'minLength' && <span className="label-text-alt text-red-500">{errors.password.message}</span>}
                                 </label>
                             </div>
-                            {ErrorInSignin}
+                            {signInError}
                             <input className='btn w-full max-w-xs text-white' type="submit" value="Login" />
                         </form>
                         <p><small>New to Facturer ? <Link className='text-primary' to="/signup">Create Account </Link></small></p>
                         <div className="divider">OR</div>
                         <button
-                            onClick={() => googleSignIn()}
+                            onClick={() => signInWithGoogle()}
                             className="btn btn-outline">
                             Connect With Google
                         </button>

@@ -35,7 +35,8 @@ const Purches = (params) => {
             fetch(`http://localhost:5000/order/${_id}`,{
                 method:"POST",
                 headers:{
-                    "content-type":"application/json"
+                    "content-type":"application/json", 
+                    'authorization': `Bearer ${localStorage.getItem('accessToken')}`
                 },
                 body: JSON.stringify(order)
             }).then(res=>res.json())
