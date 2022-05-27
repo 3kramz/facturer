@@ -1,6 +1,6 @@
 # Facturer - Mobile parts manufacturer Web Application
 
-# [Live site](https://facturer-x.web.app/)
+# [Live site](https://facturer-x.web.app/)- https://facturer-x.web.app
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
