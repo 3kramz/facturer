@@ -11,57 +11,30 @@ import Purches from './Pages/Purches/Purches';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import AdminRoutes from './Routes/AdminRoutes';
-import { useAuthState } from 'react-firebase-hooks/auth';
-import auth from './Firebase.init';
-import { useEffect, useState } from 'react';
-import Loading from './Components/Loading';
 import MyProfile from './Pages/Dashboard/MyProfile/MyProfile';
 
 
 
 function App() {
 
-  const [user, loading] = useAuthState(auth);
-
-  const [admin, setAdmin] = useState(false)
-  const [adminLoading, setAdminLoading] = useState(true)
-  useEffect(() => {
-    const email = user?.email
-    fetch(`http://localhost:5000/admin/${email}`, {
-      method: "GET",
-      headers: {
-        "content-type": "application/json",
-        'authorization': `Bearer ${localStorage.getItem('accessToken')}`
-      }
-    })
-      .then(res => res.json())
-      .then(data => {
-        setAdminLoading(false)
-        setAdmin(data.admin)
-      })
-  }, [user])
-
-  if (adminLoading || loading) {
-    return <Loading />
-  }
-
   return (
     <div className="" data-theme="light">
       <Navbar />
       <ToastContainer />
-      {<Routes>
 
-        {PublicRoutes.map(({ Component, path }) => <Route element={<Component />} path={path} />)}
-
-        <Route element={<RequireAuth />} >
-          <Route path="/dashboard" element={<Dashboard />}>
-
-          <Route path= "/dashboard/my-profile" element={<MyProfile/>}/>
-            {!admin && PrivateRoutes.map(({ Component, path }) => <Route element={<Component />} path={path} />)}
+{/* Public Route */}
+      {<Routes>{PublicRoutes.map(({ Component, path }) => <Route element={<Component />} path={path} />)}
+{/* Private route */}
+        <Route path="/dashboard" element={<Dashboard />}>
+          <Route path="/dashboard/my-profile" element={<MyProfile />} />
+          <Route element={<RequireAuth />} >{PrivateRoutes.map(({ Component, path }) => <Route element={<Component />} path={path} />)}
           </Route>
-          {!admin &&<Route path="/purches/:id" element={<Purches />} /> }
         </Route>
 
+        <Route element={<RequireAuth />} >
+          <Route path="/purches/:id" element={<Purches />} />
+        </Route>
+{/* Admin roite */}
         <Route element={<RequireAdmin />} >
           <Route path="/dashboard" element={<Dashboard />}>
             {AdminRoutes.map(({ Component, path }) => <Route element={<Component />} path={path} />)}
